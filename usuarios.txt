@@ -1,0 +1,3 @@
+admin:admin123
+alumno:uni2026
+estres:estres

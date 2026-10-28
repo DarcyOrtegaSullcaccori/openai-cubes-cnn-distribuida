@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>run</actionName>
+        <packagings>
+            <packaging>jar</packaging>
+        </packagings>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.vmArgs></exec.vmArgs>
+            <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+            <exec.appArgs></exec.appArgs>
+            <exec.mainClass>pe.uni.cubes.servidor.ServidorCentral</exec.mainClass>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+        <actionName>CUSTOM-nodo-java</actionName>
+        <displayName>2. Nodo Java</displayName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath pe.uni.cubes.nodo.NodoJava ${exec.appArgs}</exec.args>
+            <exec.appArgs>--servidor localhost --puerto 5000 --hilos 4 --nombre java-netbeans</exec.appArgs>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+        <actionName>CUSTOM-cliente</actionName>
+        <displayName>3. Cliente de chat (Swing)</displayName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath pe.uni.cubes.cliente.ClienteChat ${exec.appArgs}</exec.args>
+            <exec.appArgs>--servidor localhost --puerto 6000</exec.appArgs>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+        <actionName>CUSTOM-sinteticos</actionName>
+        <displayName>1. Generar datos sinteticos de prueba</displayName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath pe.uni.cubes.herramientas.GenerarSinteticos ${exec.appArgs}</exec.args>
+            <exec.appArgs>datos/imagenes 300</exec.appArgs>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+        <actionName>CUSTOM-estres</actionName>
+        <displayName>4. Prueba de estres</displayName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath pe.uni.cubes.herramientas.PruebaEstres ${exec.appArgs}</exec.args>
+            <exec.appArgs>--servidor localhost --puerto 6000 --clientes 50 --tx 40 --delayMin 0 --delayMax 100 --imagenes datos/imagenes/test</exec.appArgs>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+        <actionName>CUSTOM-graficas</actionName>
+        <displayName>5. Graficas de desempeno</displayName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath pe.uni.cubes.herramientas.Graficas ${exec.appArgs}</exec.args>
+            <exec.appArgs>resultados</exec.appArgs>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+</actions>

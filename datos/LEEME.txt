@@ -1,0 +1,15 @@
+Coloque aqui los datos (no se suben a Univirtual por su tamano):
+
+1) CIFAR-10 (version binaria):
+   https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
+   Descomprimir para que exista: datos/cifar-10-batches-bin/data_batch_1.bin ... test_batch.bin
+
+2) Imagenes propias (ej. panda), JPG/PNG de cualquier tamano:
+   datos/imagenes/train/panda/*.jpg
+   datos/imagenes/test/panda/*.jpg
+
+3) Datos sinteticos para probar sin descargar nada:
+   cubes.bat sinteticos      (o Run Maven > 1. Generar datos sinteticos)
+   -> datos/imagenes/{train,test}/{circulo,cuadrado,triangulo,cruz}
+
+Las clases y el limite por clase se configuran en servidor.properties.

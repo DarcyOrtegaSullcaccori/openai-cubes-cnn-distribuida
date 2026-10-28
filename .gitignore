@@ -1,0 +1,37 @@
+# Build artifacts
+target/
+build/
+*.class
+*.jar
+
+# Datasets (heavy — descarga desde el README)
+datos/cifar-10-batches-bin/
+datos/imagenes/
+
+# Results (generated at runtime)
+resultados/
+
+# Logs
+*.log
+nodo.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Go binary
+nodo_go/nodo_go
+nodo_go/main
+
+# NetBeans private config
+nbproject/private/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
