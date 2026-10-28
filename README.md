@@ -2,6 +2,27 @@
 
 Sistema de clasificación de imágenes basado en una CNN escrita desde cero, cuyo cálculo se reparte entre nodos en **Java, Python, Go y JavaScript (Node.js)** mediante un protocolo binario propio sobre TCP. Desarrollado para el curso CC4P1 (Computación Concurrente, UNI – 2026-II).
 
+<div align="center">
+
+| | | |
+|:---:|:---:|:---:|
+| ![Intro](docs/screenshots/frame_01.jpg) | ![32x32 pixels](docs/screenshots/frame_02.jpg) | ![1 server · 4 nodes](docs/screenshots/frame_03.jpg) |
+| Red neuronal en 4 lenguajes | Imágenes a 32×32 px | 1 servidor · 4 nodos |
+| ![Raw TCP sockets](docs/screenshots/frame_04.jpg) | ![OCP v1 frame](docs/screenshots/frame_05.jpg) | ![Inside each node](docs/screenshots/frame_06.jpg) |
+| Protocolo TCP binario propio | Trama OCP v1 (12 bytes + payload) | H threads por nodo |
+| ![CONV_FWD](docs/screenshots/frame_08.jpg) | ![CuboMLP](docs/screenshots/frame_09.jpg) | ![Inferencia](docs/screenshots/frame_11.jpg) |
+| CONV_FWD: filtros repartidos por nodo | CuboMLP: 1024 → 64 → 3 | Chat: 99.5% panda en 7 ms |
+
+</div>
+
+<div align="center">
+
+![Métricas](docs/screenshots/frame_12.jpg)
+
+**×3.7** más rápido con 4 hilos · **10⁻⁷** diferencia máxima entre los 4 lenguajes · **400** clientes concurrentes · **78.2%** precisión
+
+</div>
+
 ---
 
 ## Arquitectura
